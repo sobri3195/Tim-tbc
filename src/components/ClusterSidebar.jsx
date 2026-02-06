@@ -19,7 +19,7 @@ export default function ClusterSidebar({
   const sortedClusters = [...clusters].sort((a, b) => b.stats.confidence - a.stats.confidence);
 
   return (
-    <aside className="w-[360px] border-r bg-white p-4 overflow-auto">
+    <aside className="w-full lg:w-[360px] border-b lg:border-b-0 lg:border-r bg-white p-4 overflow-auto">
       <div className="mb-4">
         <h1 className="text-xl font-semibold">{title}</h1>
         <p className="text-sm text-slate-600">Agregat saja, tidak ada data individu.</p>
