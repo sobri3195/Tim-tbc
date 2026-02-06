@@ -1,13 +1,11 @@
 import { useEffect, useMemo, useState, useCallback } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { AuthProvider, useAuth } from "./context/AuthContext.jsx";
 import { PatientProvider } from "./context/PatientContext.jsx";
 import MapView from "./components/MapView.jsx";
-import MobilitySidebar from "./components/MobilitySidebar.jsx";
-import PlannerSidebar from "./components/PlannerSidebar.jsx";
 import PlannerLayer from "./components/PlannerLayer.jsx";
 import AreaLayer from "./components/AreaLayer.jsx";
 import MapResizeHandler from "./components/MapResizeHandler.jsx";
-import MobileBottomNav from "./components/MobileBottomNav.jsx";
 import LoginForm from "./components/LoginForm.jsx";
 import UserSidebar from "./components/UserSidebar.jsx";
 import MainSidebar from "./components/MainSidebar.jsx";
@@ -85,12 +83,44 @@ function AppContent() {
   }, []);
 
   // ==================== VIEW STATE ====================
-  const [currentView, setCurrentView] = useState(VIEWS.PLANNER);
+  const { viewId } = useParams();
+  const navigate = useNavigate();
+  const validViews = useMemo(() => new Set(Object.values(VIEWS)), []);
+  const defaultView = VIEWS.PLANNER;
+
+  const [currentView, setCurrentView] = useState(() =>
+    validViews.has(viewId) ? viewId : defaultView
+  );
+
+  useEffect(() => {
+    if (!viewId) {
+      navigate(`/app/${defaultView}`, { replace: true });
+      return;
+    }
+
+    if (!validViews.has(viewId)) {
+      setCurrentView(defaultView);
+      navigate(`/app/${defaultView}`, { replace: true });
+      return;
+    }
+
+    setCurrentView(viewId);
+  }, [viewId, validViews, defaultView, navigate]);
+
+  const handleViewChange = useCallback(
+    (nextView) => {
+      if (!validViews.has(nextView)) return;
+      setCurrentView(nextView);
+      navigate(`/app/${nextView}`);
+    },
+    [navigate, validViews]
+  );
 
   // ==================== MOBILITY VIEW STATE ====================
   const [layers, setLayers] = useState({
     flowArcs: true,
     importRisk: true,
+    gapHeatmap: true,
   });
 
   const [filters, setFilters] = useState({
@@ -296,7 +326,7 @@ function AppContent() {
       {/* Main Navigation Sidebar */}
       <MainSidebar 
         currentView={currentView} 
-        onViewChange={setCurrentView} 
+        onViewChange={handleViewChange} 
       />
 
       {/* Content Area */}
@@ -310,6 +340,9 @@ function AppContent() {
                 centroidById={centroidById}
                 flows={filteredFlows}
                 importRiskById={importRiskById}
+                grids={grids}
+                timeseriesData={ts}
+                timeKey={timeKey}
                 layers={layers}
                 activeAreaId={activeAreaId}
                 onHoverArea={setHoveredAreaId}
@@ -345,7 +378,7 @@ function AppContent() {
             {/* View Switcher (desktop) - Floating */}
             <div className="hidden lg:flex absolute top-4 left-4 z-[1000] bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border p-1 gap-1">
               <button
-                onClick={() => setCurrentView(VIEWS.MOBILITY)}
+                onClick={() => handleViewChange(VIEWS.MOBILITY)}
                 className={`py-2 px-4 rounded-lg text-sm font-semibold transition ${
                   currentView === VIEWS.MOBILITY
                     ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white"
@@ -355,7 +388,7 @@ function AppContent() {
                 🌊 Mobilitas
               </button>
               <button
-                onClick={() => setCurrentView(VIEWS.PLANNER)}
+                onClick={() => handleViewChange(VIEWS.PLANNER)}
                 className={`py-2 px-4 rounded-lg text-sm font-semibold transition ${
                   currentView === VIEWS.PLANNER
                     ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white"
