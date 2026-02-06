@@ -3,8 +3,68 @@
   "features": [
     {
       "type": "Feature",
-      "properties": { "id": "F_001", "name": "Puskesmas A", "type": "Puskesmas" },
-      "geometry": { "type": "Point", "coordinates": [119.42, -5.15] }
+      "properties": {
+        "id": "FASKES_JKT_001",
+        "name": "Puskesmas Gambir",
+        "type": "Puskesmas",
+        "services": ["Screening TBC", "Diagnosis", "Pengobatan"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.812, -6.172]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "FASKES_JKT_002",
+        "name": "RSUD Tanah Abang",
+        "type": "Rumah Sakit",
+        "services": ["Diagnosis TBC", "Pengobatan", "Rujukan"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.8, -6.195]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "FASKES_JKT_003",
+        "name": "Puskesmas Menteng",
+        "type": "Puskesmas",
+        "services": ["Screening TBC", "Diagnosis"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.83, -6.19]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "FASKES_JKT_004",
+        "name": "Puskesmas Senen",
+        "type": "Puskesmas",
+        "services": ["Screening TBC", "Diagnosis", "Pengobatan"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.842, -6.182]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "FASKES_JKT_005",
+        "name": "RSUD Kemayoran",
+        "type": "Rumah Sakit",
+        "services": ["Diagnosis TBC", "Pengobatan", "Rujukan", "DOTS"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.855, -6.152]
+      }
     }
   ]
 }

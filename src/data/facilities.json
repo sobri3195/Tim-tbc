@@ -1,44 +1,42 @@
 [
   {
-    "id": "fac-01",
-    "name": "Puskesmas Melati",
+    "id": "FASKES_JKT_001",
+    "name": "Puskesmas Gambir",
     "type": "Puskesmas",
-    "lat": -6.095,
-    "lng": 106.82,
-    "visits": {
-      "cough": 180,
-      "suspect": 74,
-      "diagnosis": 28,
-      "treatment": 19
-    },
-    "catchmentRadiusKm": 1.6
+    "lat": -6.172,
+    "lng": 106.812,
+    "services": ["Screening TBC", "Diagnosis", "Pengobatan"]
   },
   {
-    "id": "fac-02",
-    "name": "RSUD Cempaka",
+    "id": "FASKES_JKT_002",
+    "name": "RSUD Tanah Abang",
     "type": "Rumah Sakit",
-    "lat": -6.14,
-    "lng": 106.84,
-    "visits": {
-      "cough": 240,
-      "suspect": 92,
-      "diagnosis": 41,
-      "treatment": 33
-    },
-    "catchmentRadiusKm": 2.4
+    "lat": -6.195,
+    "lng": 106.8,
+    "services": ["Diagnosis TBC", "Pengobatan", "Rujukan"]
   },
   {
-    "id": "fac-03",
-    "name": "Klinik Teratai",
-    "type": "Klinik",
-    "lat": -6.155,
-    "lng": 106.815,
-    "visits": {
-      "cough": 96,
-      "suspect": 31,
-      "diagnosis": 12,
-      "treatment": 9
-    },
-    "catchmentRadiusKm": 1.2
+    "id": "FASKES_JKT_003",
+    "name": "Puskesmas Menteng",
+    "type": "Puskesmas",
+    "lat": -6.19,
+    "lng": 106.83,
+    "services": ["Screening TBC", "Diagnosis"]
+  },
+  {
+    "id": "FASKES_JKT_004",
+    "name": "Puskesmas Senen",
+    "type": "Puskesmas",
+    "lat": -6.182,
+    "lng": 106.842,
+    "services": ["Screening TBC", "Diagnosis", "Pengobatan"]
+  },
+  {
+    "id": "FASKES_JKT_005",
+    "name": "RSUD Kemayoran",
+    "type": "Rumah Sakit",
+    "lat": -6.152,
+    "lng": 106.855,
+    "services": ["Diagnosis TBC", "Pengobatan", "Rujukan", "DOTS"]
   }
 ]

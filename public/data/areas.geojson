@@ -1,9 +1,173 @@
 {
   "type": "FeatureCollection",
   "features": [
-    { "type": "Feature",
-      "properties": { "id": "KEL_001", "name": "Kelurahan A" },
-      "geometry": { "type": "Polygon", "coordinates": [[[119.41,-5.14],[119.43,-5.14],[119.43,-5.16],[119.41,-5.16],[119.41,-5.14]]] }
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "JKT-01",
+        "name": "Kecamatan Gambir",
+        "population": 120000,
+        "hiddenClusterIndex": 78
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [106.805, -6.165],
+            [106.82, -6.165],
+            [106.82, -6.175],
+            [106.805, -6.175],
+            [106.805, -6.165]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "JKT-02",
+        "name": "Kecamatan Tanah Abang",
+        "population": 145000,
+        "hiddenClusterIndex": 62
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [106.79, -6.185],
+            [106.81, -6.185],
+            [106.81, -6.205],
+            [106.79, -6.205],
+            [106.79, -6.185]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "JKT-03",
+        "name": "Kecamatan Menteng",
+        "population": 65000,
+        "hiddenClusterIndex": 45
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [106.82, -6.185],
+            [106.845, -6.185],
+            [106.845, -6.205],
+            [106.82, -6.205],
+            [106.82, -6.185]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "JKT-04",
+        "name": "Kecamatan Senen",
+        "population": 98000,
+        "hiddenClusterIndex": 71
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [106.835, -6.175],
+            [106.855, -6.175],
+            [106.855, -6.19],
+            [106.835, -6.19],
+            [106.835, -6.175]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "JKT-05",
+        "name": "Kecamatan Johar Baru",
+        "population": 110000,
+        "hiddenClusterIndex": 85
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [106.845, -6.165],
+            [106.865, -6.165],
+            [106.865, -6.18],
+            [106.845, -6.18],
+            [106.845, -6.165]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "JKT-06",
+        "name": "Kecamatan Cempaka Putih",
+        "population": 82000,
+        "hiddenClusterIndex": 68
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [106.855, -6.155],
+            [106.875, -6.155],
+            [106.875, -6.175],
+            [106.855, -6.175],
+            [106.855, -6.155]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "JKT-07",
+        "name": "Kecamatan Kemayoran",
+        "population": 165000,
+        "hiddenClusterIndex": 92
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [106.845, -6.14],
+            [106.87, -6.14],
+            [106.87, -6.16],
+            [106.845, -6.16],
+            [106.845, -6.14]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "JKT-08",
+        "name": "Kecamatan Sawah Besar",
+        "population": 105000,
+        "hiddenClusterIndex": 76
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [106.825, -6.14],
+            [106.845, -6.14],
+            [106.845, -6.165],
+            [106.825, -6.165],
+            [106.825, -6.14]
+          ]
+        ]
+      }
     }
   ]
 }
