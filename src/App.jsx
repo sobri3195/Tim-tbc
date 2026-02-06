@@ -178,6 +178,26 @@ export default function App() {
     [plan]
   );
 
+  const handleUpdatePin = useCallback(
+    (pinId, pinData) => {
+      // Save to history before change
+      saveToHistory(plan);
+
+      setPlan((prev) => ({
+        ...prev,
+        pins: prev.pins.map((p) =>
+          p.id === pinId
+            ? { ...p, ...pinData }
+            : p
+        ),
+      }));
+
+      // Keep the pin selected after update
+      setSelectedPinId(pinId);
+    },
+    [plan]
+  );
+
   const handleRemovePin = useCallback(
     (pinId) => {
       saveToHistory(plan);
@@ -243,25 +263,25 @@ export default function App() {
 
   // ==================== RENDER ====================
   return (
-    <div className="min-h-screen w-full flex flex-col lg:flex-row">
+    <div className="min-h-screen w-full flex flex-col lg:flex-row overflow-hidden">
       {/* View Switcher Header (mobile) */}
-      <div className="lg:hidden bg-white border-b p-2 flex gap-2">
+      <div className="lg:hidden bg-white border-b p-2 flex gap-2 z-50 shadow-sm">
         <button
           onClick={() => setCurrentView(VIEWS.MOBILITY)}
-          className={`flex-1 py-2 px-4 rounded-lg text-sm font-medium transition ${
+          className={`flex-1 py-2.5 px-4 rounded-lg text-sm font-semibold transition ${
             currentView === VIEWS.MOBILITY
-              ? "bg-blue-600 text-white"
-              : "bg-slate-100 text-slate-700"
+              ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-md"
+              : "bg-slate-100 text-slate-700 hover:bg-slate-200"
           }`}
         >
           🌊 Mobilitas
         </button>
         <button
           onClick={() => setCurrentView(VIEWS.PLANNER)}
-          className={`flex-1 py-2 px-4 rounded-lg text-sm font-medium transition ${
+          className={`flex-1 py-2.5 px-4 rounded-lg text-sm font-semibold transition ${
             currentView === VIEWS.PLANNER
-              ? "bg-blue-600 text-white"
-              : "bg-slate-100 text-slate-700"
+              ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-md"
+              : "bg-slate-100 text-slate-700 hover:bg-slate-200"
           }`}
         >
           🎯 Planner
@@ -293,6 +313,7 @@ export default function App() {
           setMode={setPlannerMode}
           pins={plan.pins}
           onAddPin={handleAddPin}
+          onUpdatePin={handleUpdatePin}
           onRemovePin={handleRemovePin}
           onZoomToPin={handleZoomToPin}
           coverageStats={coverageStats}
@@ -311,7 +332,7 @@ export default function App() {
       )}
 
       {/* Map Container */}
-      <div className="flex-1 min-h-[60vh] lg:min-h-0 relative">
+      <div className="flex-1 min-h-[55vh] lg:min-h-0 relative overflow-hidden">
         {currentView === VIEWS.MOBILITY ? (
           <MapView
             areas={areas}
@@ -351,23 +372,23 @@ export default function App() {
         )}
 
         {/* View Switcher (desktop) - Floating */}
-        <div className="hidden lg:flex absolute top-4 left-4 z-[1000] bg-white rounded-lg shadow-lg border p-1 gap-1">
+        <div className="hidden lg:flex absolute top-4 left-4 z-[1000] bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border p-1 gap-1">
           <button
             onClick={() => setCurrentView(VIEWS.MOBILITY)}
-            className={`py-2 px-4 rounded-md text-sm font-medium transition ${
+            className={`py-2 px-4 rounded-lg text-sm font-semibold transition ${
               currentView === VIEWS.MOBILITY
-                ? "bg-blue-600 text-white"
-                : "text-slate-600 hover:bg-slate-50"
+                ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white"
+                : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             🌊 Mobilitas
           </button>
           <button
             onClick={() => setCurrentView(VIEWS.PLANNER)}
-            className={`py-2 px-4 rounded-md text-sm font-medium transition ${
+            className={`py-2 px-4 rounded-lg text-sm font-semibold transition ${
               currentView === VIEWS.PLANNER
-                ? "bg-blue-600 text-white"
-                : "text-slate-600 hover:bg-slate-50"
+                ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white"
+                : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             🎯 Planner
@@ -376,21 +397,25 @@ export default function App() {
 
         {/* Coverage Toggle (Planner only) */}
         {currentView === VIEWS.PLANNER && (
-          <div className="absolute top-4 right-4 z-[1000] bg-white rounded-lg shadow-lg border p-3">
-            <label className="flex items-center gap-2 text-sm cursor-pointer">
+          <div className="absolute top-4 right-4 z-[1000] bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border p-4">
+            <label className="flex items-center gap-3 text-sm cursor-pointer mb-2">
               <input
                 type="checkbox"
                 checked={showCoverage}
                 onChange={(e) => setShowCoverage(e.target.checked)}
-                className="w-4 h-4"
+                className="w-5 h-5 text-green-600 rounded"
               />
-              <span>Tampilkan Layer Cakupan</span>
+              <span className="font-medium text-slate-700">Tampilkan Layer Cakupan</span>
             </label>
-            <div className="mt-2 flex items-center gap-2 text-xs">
-              <span className="w-3 h-3 rounded-full bg-green-500"></span>
-              <span>Tercakup</span>
-              <span className="w-3 h-3 rounded-full bg-red-500 ml-2"></span>
-              <span>Belum tercakup</span>
+            <div className="flex items-center gap-3 text-xs">
+              <div className="flex items-center gap-2">
+                <span className="w-4 h-4 rounded-full bg-green-500"></span>
+                <span className="text-slate-600">Tercakup</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-4 h-4 rounded-full bg-red-500"></span>
+                <span className="text-slate-600">Belum tercakup</span>
+              </div>
             </div>
           </div>
         )}
