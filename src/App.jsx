@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useState, useCallback } from "react";
+import { AuthProvider, useAuth } from "./context/AuthContext.jsx";
+import { PatientProvider } from "./context/PatientContext.jsx";
 import MapView from "./components/MapView.jsx";
 import MobilitySidebar from "./components/MobilitySidebar.jsx";
 import PlannerSidebar from "./components/PlannerSidebar.jsx";
@@ -6,6 +8,10 @@ import PlannerLayer from "./components/PlannerLayer.jsx";
 import AreaLayer from "./components/AreaLayer.jsx";
 import MapResizeHandler from "./components/MapResizeHandler.jsx";
 import MobileBottomNav from "./components/MobileBottomNav.jsx";
+import LoginForm from "./components/LoginForm.jsx";
+import UserSidebar from "./components/UserSidebar.jsx";
+import MainSidebar from "./components/MainSidebar.jsx";
+import PatientManagement from "./components/PatientManagement.jsx";
 import { MapContainer, TileLayer } from "react-leaflet";
 import { buildCentroidById } from "./utils/centroid.js";
 import { computeImportRisk, getRiskValue } from "./utils/importRisk.js";
@@ -29,13 +35,32 @@ import {
   canUndo as checkCanUndo,
 } from "./utils/storage.js";
 
-// View modes
+// View modes - updated to include patient management
 const VIEWS = {
   MOBILITY: "mobility",
   PLANNER: "planner",
+  PATIENTS: "patients",
 };
 
+// Main App Component with Authentication and Patient Management
 export default function App() {
+  return (
+    <AuthProvider>
+      <PatientProvider>
+        <AppContent />
+      </PatientProvider>
+    </AuthProvider>
+  );
+}
+
+function AppContent() {
+  const { isAuthenticated, showLogin } = useAuth();
+  
+  // Show login form if not authenticated
+  if (!isAuthenticated && showLogin) {
+    return <LoginForm />;
+  }
+
   // ==================== DATA LOADING ====================
   const [areas, setAreas] = useState(null);
   const [flows, setFlows] = useState([]);
@@ -265,141 +290,118 @@ export default function App() {
   // ==================== RENDER ====================
   return (
     <div className="min-h-screen w-full flex flex-col lg:flex-row overflow-hidden pb-16 lg:pb-0">
-      {/* Sidebar */}
-      {currentView === VIEWS.MOBILITY ? (
-        <MobilitySidebar
-          title="TBC Hidden Cluster Map"
-          timeKey={timeKey}
-          timeKeys={timeKeys}
-          setTimeKey={setTimeKey}
-          layers={layers}
-          setLayers={setLayers}
-          filters={filters}
-          setFilters={setFilters}
-          areas={areas}
-          activeAreaId={activeAreaId}
-          contributionsByTo={contributionsByTo}
-          selectedFlow={selectedFlow}
-          onSelectFlow={setSelectedFlow}
-          maxVolume={maxVolumeForTime}
-          flowsEmpty={flowsForTime.length === 0}
-        />
-      ) : (
-        <PlannerSidebar
-          mode={plannerMode}
-          setMode={setPlannerMode}
-          pins={plan.pins}
-          onAddPin={handleAddPin}
-          onUpdatePin={handleUpdatePin}
-          onRemovePin={handleRemovePin}
-          onZoomToPin={handleZoomToPin}
-          coverageStats={coverageStats}
-          recommendations={recommendations}
-          onAcceptRecommendation={handleAcceptRecommendation}
-          onZoomToRecommendation={handleZoomToRecommendation}
-          onUndo={handleUndo}
-          canUndo={canUndoState}
-          onClear={handleClear}
-          onExport={handleExport}
-          onImport={handleImport}
-          lastSaved={lastSaved}
-          selectedPinId={selectedPinId}
-          onSelectPin={setSelectedPinId}
-        />
-      )}
+      {/* User Info Sidebar */}
+      <UserSidebar />
 
-      {/* Map Container */}
+      {/* Main Navigation Sidebar */}
+      <MainSidebar 
+        currentView={currentView} 
+        onViewChange={setCurrentView} 
+      />
+
+      {/* Content Area */}
       <div className="flex-1 min-h-[55vh] lg:min-h-0 relative overflow-hidden">
-        {currentView === VIEWS.MOBILITY ? (
-          <MapView
-            areas={areas}
-            centroidById={centroidById}
-            flows={filteredFlows}
-            importRiskById={importRiskById}
-            layers={layers}
-            activeAreaId={activeAreaId}
-            onHoverArea={setHoveredAreaId}
-            onSelectArea={setSelectedAreaId}
-            selectedFlow={selectedFlow}
-            flowsEmpty={flowsForTime.length === 0}
-          />
-        ) : (
-          <PlannerMap
-            areas={areas}
-            grids={grids}
-            timeseriesData={ts}
-            timeKey={timeKey}
-            mode={plannerMode}
-            pins={plan.pins}
-            selectedPinId={selectedPinId}
-            onSelectPin={setSelectedPinId}
-            onAddPin={handleAddPin}
-            onRemovePin={handleRemovePin}
-            showCoverage={showCoverage}
-            coverageSets={coverageSets}
-            recommendations={recommendations}
-            highlightedRecommendation={highlightedRecommendation}
-            onAcceptRecommendation={handleAcceptRecommendation}
-            zoomTarget={zoomTarget}
-            onZoomComplete={() => setZoomTarget(null)}
-            onHoverArea={setHoveredAreaId}
-            onSelectArea={setSelectedAreaId}
-            activeAreaId={activeAreaId}
-          />
+        {/* Map Views */}
+        {(currentView === VIEWS.MOBILITY || currentView === VIEWS.PLANNER) && (
+          <>
+            {currentView === VIEWS.MOBILITY ? (
+              <MapView
+                areas={areas}
+                centroidById={centroidById}
+                flows={filteredFlows}
+                importRiskById={importRiskById}
+                layers={layers}
+                activeAreaId={activeAreaId}
+                onHoverArea={setHoveredAreaId}
+                onSelectArea={setSelectedAreaId}
+                selectedFlow={selectedFlow}
+                flowsEmpty={flowsForTime.length === 0}
+              />
+            ) : (
+              <PlannerMap
+                areas={areas}
+                grids={grids}
+                timeseriesData={ts}
+                timeKey={timeKey}
+                mode={plannerMode}
+                pins={plan.pins}
+                selectedPinId={selectedPinId}
+                onSelectPin={setSelectedPinId}
+                onAddPin={handleAddPin}
+                onRemovePin={handleRemovePin}
+                showCoverage={showCoverage}
+                coverageSets={coverageSets}
+                recommendations={recommendations}
+                highlightedRecommendation={highlightedRecommendation}
+                onAcceptRecommendation={handleAcceptRecommendation}
+                zoomTarget={zoomTarget}
+                onZoomComplete={() => setZoomTarget(null)}
+                onHoverArea={setHoveredAreaId}
+                onSelectArea={setSelectedAreaId}
+                activeAreaId={activeAreaId}
+              />
+            )}
+
+            {/* View Switcher (desktop) - Floating */}
+            <div className="hidden lg:flex absolute top-4 left-4 z-[1000] bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border p-1 gap-1">
+              <button
+                onClick={() => setCurrentView(VIEWS.MOBILITY)}
+                className={`py-2 px-4 rounded-lg text-sm font-semibold transition ${
+                  currentView === VIEWS.MOBILITY
+                    ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white"
+                    : "text-slate-600 hover:bg-slate-100"
+                }`}
+              >
+                🌊 Mobilitas
+              </button>
+              <button
+                onClick={() => setCurrentView(VIEWS.PLANNER)}
+                className={`py-2 px-4 rounded-lg text-sm font-semibold transition ${
+                  currentView === VIEWS.PLANNER
+                    ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white"
+                    : "text-slate-600 hover:bg-slate-100"
+                }`}
+              >
+                🎯 Planner
+              </button>
+            </div>
+
+            {/* Coverage Toggle (Planner only) */}
+            {currentView === VIEWS.PLANNER && (
+              <div className="absolute top-4 right-4 z-[1000] bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border p-4">
+                <label className="flex items-center gap-3 text-sm cursor-pointer mb-2">
+                  <input
+                    type="checkbox"
+                    checked={showCoverage}
+                    onChange={(e) => setShowCoverage(e.target.checked)}
+                    className="w-5 h-5 text-green-600 rounded"
+                  />
+                  <span className="font-medium text-slate-700">Tampilkan Layer Cakupan</span>
+                </label>
+                <div className="flex items-center gap-3 text-xs">
+                  <div className="flex items-center gap-2">
+                    <span className="w-4 h-4 rounded-full bg-green-500"></span>
+                    <span className="text-slate-600">Tercakup</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-4 h-4 rounded-full bg-red-500"></span>
+                    <span className="text-slate-600">Belum tercakup</span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </>
         )}
 
-        {/* View Switcher (desktop) - Floating */}
-        <div className="hidden lg:flex absolute top-4 left-4 z-[1000] bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border p-1 gap-1">
-          <button
-            onClick={() => setCurrentView(VIEWS.MOBILITY)}
-            className={`py-2 px-4 rounded-lg text-sm font-semibold transition ${
-              currentView === VIEWS.MOBILITY
-                ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white"
-                : "text-slate-600 hover:bg-slate-100"
-            }`}
-          >
-            🌊 Mobilitas
-          </button>
-          <button
-            onClick={() => setCurrentView(VIEWS.PLANNER)}
-            className={`py-2 px-4 rounded-lg text-sm font-semibold transition ${
-              currentView === VIEWS.PLANNER
-                ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white"
-                : "text-slate-600 hover:bg-slate-100"
-            }`}
-          >
-            🎯 Planner
-          </button>
-        </div>
-
-        {/* Coverage Toggle (Planner only) */}
-        {currentView === VIEWS.PLANNER && (
-          <div className="absolute top-4 right-4 z-[1000] bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border p-4">
-            <label className="flex items-center gap-3 text-sm cursor-pointer mb-2">
-              <input
-                type="checkbox"
-                checked={showCoverage}
-                onChange={(e) => setShowCoverage(e.target.checked)}
-                className="w-5 h-5 text-green-600 rounded"
-              />
-              <span className="font-medium text-slate-700">Tampilkan Layer Cakupan</span>
-            </label>
-            <div className="flex items-center gap-3 text-xs">
-              <div className="flex items-center gap-2">
-                <span className="w-4 h-4 rounded-full bg-green-500"></span>
-                <span className="text-slate-600">Tercakup</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-4 h-4 rounded-full bg-red-500"></span>
-                <span className="text-slate-600">Belum tercakup</span>
-              </div>
+        {/* Patient Management View */}
+        {currentView === VIEWS.PATIENTS && (
+          <div className="w-full h-full overflow-y-auto bg-gray-50">
+            <div className="p-6">
+              <PatientManagement />
             </div>
           </div>
         )}
       </div>
-
-      {/* Mobile Bottom Navigation */}
-      <MobileBottomNav currentView={currentView} onViewChange={setCurrentView} />
     </div>
   );
 }
