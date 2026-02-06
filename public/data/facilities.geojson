@@ -1,0 +1,10 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "id": "F_001", "name": "Puskesmas A", "type": "Puskesmas" },
+      "geometry": { "type": "Point", "coordinates": [119.42, -5.15] }
+    }
+  ]
+}
