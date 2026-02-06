@@ -5,6 +5,7 @@ import PlannerSidebar from "./components/PlannerSidebar.jsx";
 import PlannerLayer from "./components/PlannerLayer.jsx";
 import AreaLayer from "./components/AreaLayer.jsx";
 import MapResizeHandler from "./components/MapResizeHandler.jsx";
+import MobileBottomNav from "./components/MobileBottomNav.jsx";
 import { MapContainer, TileLayer } from "react-leaflet";
 import { buildCentroidById } from "./utils/centroid.js";
 import { computeImportRisk, getRiskValue } from "./utils/importRisk.js";
@@ -263,31 +264,7 @@ export default function App() {
 
   // ==================== RENDER ====================
   return (
-    <div className="min-h-screen w-full flex flex-col lg:flex-row overflow-hidden">
-      {/* View Switcher Header (mobile) */}
-      <div className="lg:hidden bg-white border-b p-2 flex gap-2 z-50 shadow-sm">
-        <button
-          onClick={() => setCurrentView(VIEWS.MOBILITY)}
-          className={`flex-1 py-2.5 px-4 rounded-lg text-sm font-semibold transition ${
-            currentView === VIEWS.MOBILITY
-              ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-md"
-              : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-          }`}
-        >
-          🌊 Mobilitas
-        </button>
-        <button
-          onClick={() => setCurrentView(VIEWS.PLANNER)}
-          className={`flex-1 py-2.5 px-4 rounded-lg text-sm font-semibold transition ${
-            currentView === VIEWS.PLANNER
-              ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-md"
-              : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-          }`}
-        >
-          🎯 Planner
-        </button>
-      </div>
-
+    <div className="min-h-screen w-full flex flex-col lg:flex-row overflow-hidden pb-16 lg:pb-0">
       {/* Sidebar */}
       {currentView === VIEWS.MOBILITY ? (
         <MobilitySidebar
@@ -420,6 +397,9 @@ export default function App() {
           </div>
         )}
       </div>
+
+      {/* Mobile Bottom Navigation */}
+      <MobileBottomNav currentView={currentView} onViewChange={setCurrentView} />
     </div>
   );
 }
