@@ -2,6 +2,7 @@ import { MapContainer, TileLayer } from "react-leaflet";
 import { useMemo } from "react";
 import FlowLayer from "./FlowLayer.jsx";
 import ImportRiskLayer from "./ImportRiskLayer.jsx";
+import MapResizeHandler from "./MapResizeHandler.jsx";
 
 export default function MapView({
   areas,
@@ -23,6 +24,7 @@ export default function MapView({
   return (
     <div className="h-full w-full relative">
       <MapContainer className="h-full w-full" center={center} zoom={zoom} scrollWheelZoom>
+        <MapResizeHandler />
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

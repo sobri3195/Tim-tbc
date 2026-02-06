@@ -4,6 +4,7 @@ import MobilitySidebar from "./components/MobilitySidebar.jsx";
 import PlannerSidebar from "./components/PlannerSidebar.jsx";
 import PlannerLayer from "./components/PlannerLayer.jsx";
 import AreaLayer from "./components/AreaLayer.jsx";
+import MapResizeHandler from "./components/MapResizeHandler.jsx";
 import { MapContainer, TileLayer } from "react-leaflet";
 import { buildCentroidById } from "./utils/centroid.js";
 import { computeImportRisk, getRiskValue } from "./utils/importRisk.js";
@@ -426,6 +427,7 @@ function PlannerMap({
 
   return (
     <MapContainer className="h-full w-full" center={center} zoom={zoom} scrollWheelZoom>
+      <MapResizeHandler />
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
