@@ -1,0 +1,131 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "gridId": "g-01",
+        "kelurahan": "Melati",
+        "riskScore": 0.72,
+        "visitRate": 33
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [106.8, -6.1],
+            [106.83, -6.1],
+            [106.83, -6.07],
+            [106.8, -6.07],
+            [106.8, -6.1]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "gridId": "g-02",
+        "kelurahan": "Kenanga",
+        "riskScore": 0.45,
+        "visitRate": 21
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [106.83, -6.1],
+            [106.86, -6.1],
+            [106.86, -6.07],
+            [106.83, -6.07],
+            [106.83, -6.1]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "gridId": "g-03",
+        "kelurahan": "Anggrek",
+        "riskScore": 0.88,
+        "visitRate": 42
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [106.8, -6.13],
+            [106.83, -6.13],
+            [106.83, -6.1],
+            [106.8, -6.1],
+            [106.8, -6.13]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "gridId": "g-04",
+        "kelurahan": "Dahlia",
+        "riskScore": 0.6,
+        "visitRate": 37
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [106.83, -6.13],
+            [106.86, -6.13],
+            [106.86, -6.1],
+            [106.83, -6.1],
+            [106.83, -6.13]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "gridId": "g-05",
+        "kelurahan": "Teratai",
+        "riskScore": 0.82,
+        "visitRate": 47
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [106.8, -6.16],
+            [106.83, -6.16],
+            [106.83, -6.13],
+            [106.8, -6.13],
+            [106.8, -6.16]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "gridId": "g-06",
+        "kelurahan": "Cempaka",
+        "riskScore": 0.38,
+        "visitRate": 19
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [106.83, -6.16],
+            [106.86, -6.16],
+            [106.86, -6.13],
+            [106.83, -6.13],
+            [106.83, -6.16]
+          ]
+        ]
+      }
+    }
+  ]
+}

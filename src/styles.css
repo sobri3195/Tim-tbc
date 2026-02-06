@@ -1,0 +1,203 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  color: #1f2937;
+  background: #f8fafc;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+  color: #64748b;
+}
+
+.app-header h1 {
+  margin: 0.35rem 0 0;
+  font-size: 1.5rem;
+}
+
+.view-switcher {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.view-switcher button {
+  border: 1px solid #cbd5f5;
+  background: #f8fafc;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.view-switcher button.active {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+  color: #fff;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 88px);
+}
+
+.sidebar {
+  width: 360px;
+  padding: 1.5rem;
+  overflow-y: auto;
+  background: #ffffff;
+  border-right: 1px solid #e2e8f0;
+}
+
+.panel {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.panel:last-child {
+  border-bottom: none;
+}
+
+.panel h2,
+.panel h3 {
+  margin: 0 0 0.75rem;
+}
+
+.microcopy {
+  margin: 0.5rem 0 0;
+  color: #475569;
+}
+
+.alert {
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  background: #fef3c7;
+  border-radius: 0.75rem;
+  border: 1px solid #f59e0b;
+  color: #7c2d12;
+}
+
+.slider-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #334155;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.legend-item span {
+  display: inline-block;
+  width: 18px;
+  height: 12px;
+  border-radius: 4px;
+}
+
+.card {
+  background: #f1f5f9;
+  padding: 0.9rem;
+  border-radius: 0.75rem;
+}
+
+.empty {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.feature-list {
+  padding-left: 1.2rem;
+  margin: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.stats-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.stats-list span {
+  color: #64748b;
+  margin-left: 0.35rem;
+}
+
+.facility-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.facility-list button {
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.6rem;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  text-align: left;
+  cursor: pointer;
+}
+
+.facility-list button.active {
+  border-color: #10b981;
+  background: #ecfdf3;
+}
+
+.map-wrapper {
+  flex: 1;
+  position: relative;
+}
+
+.map {
+  height: 100%;
+  width: 100%;
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "fac-01",
+    "name": "Puskesmas Melati",
+    "type": "Puskesmas",
+    "lat": -6.095,
+    "lng": 106.82,
+    "visits": {
+      "cough": 180,
+      "suspect": 74,
+      "diagnosis": 28,
+      "treatment": 19
+    },
+    "catchmentRadiusKm": 1.6
+  },
+  {
+    "id": "fac-02",
+    "name": "RSUD Cempaka",
+    "type": "Rumah Sakit",
+    "lat": -6.14,
+    "lng": 106.84,
+    "visits": {
+      "cough": 240,
+      "suspect": 92,
+      "diagnosis": 41,
+      "treatment": 33
+    },
+    "catchmentRadiusKm": 2.4
+  },
+  {
+    "id": "fac-03",
+    "name": "Klinik Teratai",
+    "type": "Klinik",
+    "lat": -6.155,
+    "lng": 106.815,
+    "visits": {
+      "cough": 96,
+      "suspect": 31,
+      "diagnosis": 12,
+      "treatment": 9
+    },
+    "catchmentRadiusKm": 1.2
+  }
+]

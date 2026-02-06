@@ -1,0 +1,35 @@
+{
+  "months": ["2024-01", "2024-02", "2024-03", "2024-04"],
+  "regions": [
+    {
+      "regionId": "r-01",
+      "name": "Kecamatan Utara",
+      "series": [
+        { "month": "2024-01", "coughVisits": 320, "suspected": 110, "diagnosis": 44, "treatmentStart": 32 },
+        { "month": "2024-02", "coughVisits": 340, "suspected": 123, "diagnosis": 48, "treatmentStart": 35 },
+        { "month": "2024-03", "coughVisits": 360, "suspected": 130, "diagnosis": 51, "treatmentStart": 37 },
+        { "month": "2024-04", "coughVisits": 350, "suspected": 126, "diagnosis": 49, "treatmentStart": 36 }
+      ]
+    },
+    {
+      "regionId": "r-02",
+      "name": "Kecamatan Tengah",
+      "series": [
+        { "month": "2024-01", "coughVisits": 270, "suspected": 92, "diagnosis": 37, "treatmentStart": 28 },
+        { "month": "2024-02", "coughVisits": 290, "suspected": 98, "diagnosis": 40, "treatmentStart": 30 },
+        { "month": "2024-03", "coughVisits": 310, "suspected": 101, "diagnosis": 41, "treatmentStart": 31 },
+        { "month": "2024-04", "coughVisits": 300, "suspected": 99, "diagnosis": 39, "treatmentStart": 29 }
+      ]
+    },
+    {
+      "regionId": "r-03",
+      "name": "Kecamatan Selatan",
+      "series": [
+        { "month": "2024-01", "coughVisits": 390, "suspected": 145, "diagnosis": 55, "treatmentStart": 42 },
+        { "month": "2024-02", "coughVisits": 405, "suspected": 150, "diagnosis": 58, "treatmentStart": 45 },
+        { "month": "2024-03", "coughVisits": 420, "suspected": 156, "diagnosis": 61, "treatmentStart": 46 },
+        { "month": "2024-04", "coughVisits": 415, "suspected": 152, "diagnosis": 59, "treatmentStart": 44 }
+      ]
+    }
+  ]
+}

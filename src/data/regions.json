@@ -1,0 +1,71 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "r-01",
+        "name": "Kecamatan Utara",
+        "hiddenClusterIndex": 78,
+        "notifRate": 43,
+        "suspectedRate": 62
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [106.78, -6.12],
+            [106.86, -6.12],
+            [106.86, -6.05],
+            [106.78, -6.05],
+            [106.78, -6.12]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "r-02",
+        "name": "Kecamatan Tengah",
+        "hiddenClusterIndex": 54,
+        "notifRate": 58,
+        "suspectedRate": 49
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [106.78, -6.2],
+            [106.86, -6.2],
+            [106.86, -6.12],
+            [106.78, -6.12],
+            [106.78, -6.2]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "r-03",
+        "name": "Kecamatan Selatan",
+        "hiddenClusterIndex": 86,
+        "notifRate": 39,
+        "suspectedRate": 71
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [106.78, -6.28],
+            [106.86, -6.28],
+            [106.86, -6.2],
+            [106.78, -6.2],
+            [106.78, -6.28]
+          ]
+        ]
+      }
+    }
+  ]
+}
