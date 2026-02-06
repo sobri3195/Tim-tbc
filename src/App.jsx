@@ -427,7 +427,7 @@ function PlannerMap({
   onSelectArea,
   activeAreaId,
 }) {
-  const center = [-5.145, 119.42];
+  const center = [-6.175, 106.825];
   const zoom = 13;
 
   return (

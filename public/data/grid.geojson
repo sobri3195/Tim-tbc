@@ -3,63 +3,103 @@
   "features": [
     {
       "type": "Feature",
-      "properties": { "id": "GRID_001" },
-      "geometry": { "type": "Point", "coordinates": [119.412, -5.145] }
+      "properties": { "id": "GRID_JKT_001", "kelurahan": "Gambir", "riskScore": 0.72 },
+      "geometry": { "type": "Point", "coordinates": [106.81, -6.17] }
     },
     {
       "type": "Feature",
-      "properties": { "id": "GRID_002" },
-      "geometry": { "type": "Point", "coordinates": [119.416, -5.146] }
+      "properties": { "id": "GRID_JKT_002", "kelurahan": "Gambir", "riskScore": 0.65 },
+      "geometry": { "type": "Point", "coordinates": [106.815, -6.172] }
     },
     {
       "type": "Feature",
-      "properties": { "id": "GRID_003" },
-      "geometry": { "type": "Point", "coordinates": [119.418, -5.148] }
+      "properties": { "id": "GRID_JKT_003", "kelurahan": "Tanah Abang", "riskScore": 0.88 },
+      "geometry": { "type": "Point", "coordinates": [106.795, -6.195] }
     },
     {
       "type": "Feature",
-      "properties": { "id": "GRID_004" },
-      "geometry": { "type": "Point", "coordinates": [119.421, -5.149] }
+      "properties": { "id": "GRID_JKT_004", "kelurahan": "Tanah Abang", "riskScore": 0.45 },
+      "geometry": { "type": "Point", "coordinates": [106.8, -6.198] }
     },
     {
       "type": "Feature",
-      "properties": { "id": "GRID_005" },
-      "geometry": { "type": "Point", "coordinates": [119.43, -5.152] }
+      "properties": { "id": "GRID_JKT_005", "kelurahan": "Menteng", "riskScore": 0.38 },
+      "geometry": { "type": "Point", "coordinates": [106.825, -6.19] }
     },
     {
       "type": "Feature",
-      "properties": { "id": "GRID_006" },
-      "geometry": { "type": "Point", "coordinates": [119.432, -5.154] }
+      "properties": { "id": "GRID_JKT_006", "kelurahan": "Menteng", "riskScore": 0.52 },
+      "geometry": { "type": "Point", "coordinates": [106.832, -6.195] }
     },
     {
       "type": "Feature",
-      "properties": { "id": "GRID_007" },
-      "geometry": { "type": "Point", "coordinates": [119.435, -5.155] }
+      "properties": { "id": "GRID_JKT_007", "kelurahan": "Senen", "riskScore": 0.78 },
+      "geometry": { "type": "Point", "coordinates": [106.84, -6.18] }
     },
     {
       "type": "Feature",
-      "properties": { "id": "GRID_008" },
-      "geometry": { "type": "Point", "coordinates": [119.425, -5.158] }
+      "properties": { "id": "GRID_JKT_008", "kelurahan": "Senen", "riskScore": 0.82 },
+      "geometry": { "type": "Point", "coordinates": [106.845, -6.185] }
     },
     {
       "type": "Feature",
-      "properties": { "id": "GRID_009" },
-      "geometry": { "type": "Point", "coordinates": [119.42, -5.157] }
+      "properties": { "id": "GRID_JKT_009", "kelurahan": "Johar Baru", "riskScore": 0.91 },
+      "geometry": { "type": "Point", "coordinates": [106.85, -6.17] }
     },
     {
       "type": "Feature",
-      "properties": { "id": "GRID_010" },
-      "geometry": { "type": "Point", "coordinates": [119.414, -5.153] }
+      "properties": { "id": "GRID_JKT_010", "kelurahan": "Johar Baru", "riskScore": 0.74 },
+      "geometry": { "type": "Point", "coordinates": [106.855, -6.175] }
     },
     {
       "type": "Feature",
-      "properties": { "id": "GRID_011" },
-      "geometry": { "type": "Point", "coordinates": [119.408, -5.15] }
+      "properties": { "id": "GRID_JKT_011", "kelurahan": "Cempaka Putih", "riskScore": 0.56 },
+      "geometry": { "type": "Point", "coordinates": [106.86, -6.16] }
     },
     {
       "type": "Feature",
-      "properties": { "id": "GRID_012" },
-      "geometry": { "type": "Point", "coordinates": [119.438, -5.16] }
+      "properties": { "id": "GRID_JKT_012", "kelurahan": "Cempaka Putih", "riskScore": 0.63 },
+      "geometry": { "type": "Point", "coordinates": [106.865, -6.165] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "GRID_JKT_013", "kelurahan": "Kemayoran", "riskScore": 0.95 },
+      "geometry": { "type": "Point", "coordinates": [106.85, -6.145] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "GRID_JKT_014", "kelurahan": "Kemayoran", "riskScore": 0.81 },
+      "geometry": { "type": "Point", "coordinates": [106.858, -6.15] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "GRID_JKT_015", "kelurahan": "Kemayoran", "riskScore": 0.77 },
+      "geometry": { "type": "Point", "coordinates": [106.862, -6.155] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "GRID_JKT_016", "kelurahan": "Sawah Besar", "riskScore": 0.69 },
+      "geometry": { "type": "Point", "coordinates": [106.83, -6.148] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "GRID_JKT_017", "kelurahan": "Sawah Besar", "riskScore": 0.58 },
+      "geometry": { "type": "Point", "coordinates": [106.835, -6.155] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "GRID_JKT_018", "kelurahan": "Sawah Besar", "riskScore": 0.61 },
+      "geometry": { "type": "Point", "coordinates": [106.838, -6.16] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "GRID_JKT_019", "kelurahan": "Gambir", "riskScore": 0.48 },
+      "geometry": { "type": "Point", "coordinates": [106.812, -6.168] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "GRID_JKT_020", "kelurahan": "Tanah Abang", "riskScore": 0.73 },
+      "geometry": { "type": "Point", "coordinates": [106.802, -6.19] }
     }
   ]
 }
