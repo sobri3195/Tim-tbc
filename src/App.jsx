@@ -133,7 +133,7 @@ export default function App() {
   );
 
   return (
-    <div className="h-full w-full flex">
+    <div className="min-h-screen w-full flex flex-col lg:flex-row">
       <ClusterSidebar
         title="TBC Hidden Cluster Map"
         riskThreshold={clusterParams.riskThreshold}
@@ -153,7 +153,7 @@ export default function App() {
         dataStatus={dataStatus}
       />
 
-      <div className="flex-1">
+      <div className="flex-1 min-h-[60vh] lg:min-h-0">
         <MapView
           areas={enrichedAreas}
           facilities={facilities}
