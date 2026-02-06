@@ -101,6 +101,20 @@ export default function MobilitySidebar({
                 </div>
                 <span className="text-2xl opacity-50">🎨</span>
               </label>
+
+              <label className="flex items-center gap-3 p-3 rounded-lg border-2 border-slate-200 hover:border-red-300 hover:bg-red-50 transition cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={layers.gapHeatmap}
+                  onChange={(event) => setLayers({ ...layers, gapHeatmap: event.target.checked })}
+                  className="w-5 h-5 text-red-600 rounded"
+                />
+                <div className="flex-1">
+                  <span className="font-medium text-sm text-slate-700">Heatmap Gap Suspek</span>
+                  <p className="text-xs text-slate-500">Intensitas gap suspek vs diagnosis</p>
+                </div>
+                <span className="text-2xl opacity-50">🔥</span>
+              </label>
             </div>
           )}
         </div>
