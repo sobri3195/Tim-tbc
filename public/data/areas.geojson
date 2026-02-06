@@ -1,0 +1,9 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    { "type": "Feature",
+      "properties": { "id": "KEL_001", "name": "Kelurahan A" },
+      "geometry": { "type": "Polygon", "coordinates": [[[119.41,-5.14],[119.43,-5.14],[119.43,-5.16],[119.41,-5.16],[119.41,-5.14]]] }
+    }
+  ]
+}
