@@ -1,5 +1,17 @@
 {
   "2024-01": {
-    "KEL_001": { "suspectVisits": 34, "tbDiagnosed": 6, "facilityVisits": 120, "densityIdx": 0.62 }
+    "KEL_001": { "suspectVisits": 34, "tbDiagnosed": 6, "facilityVisits": 120, "densityIdx": 0.62 },
+    "GRID_001": { "suspectVisits": 18, "tbDiagnosed": 3, "facilityVisits": 60, "densityIdx": 0.55 },
+    "GRID_002": { "suspectVisits": 22, "tbDiagnosed": 2, "facilityVisits": 75, "densityIdx": 0.62 },
+    "GRID_003": { "suspectVisits": 14, "tbDiagnosed": 4, "facilityVisits": 40, "densityIdx": 0.5 },
+    "GRID_004": { "suspectVisits": 30, "tbDiagnosed": 5, "facilityVisits": 90, "densityIdx": 0.72 },
+    "GRID_005": { "suspectVisits": 8, "tbDiagnosed": 1, "facilityVisits": 25, "densityIdx": 0.35 },
+    "GRID_006": { "suspectVisits": 26, "tbDiagnosed": 3, "facilityVisits": 80, "densityIdx": 0.68 },
+    "GRID_007": { "suspectVisits": 12, "tbDiagnosed": 5, "facilityVisits": 38, "densityIdx": 0.4 },
+    "GRID_008": { "suspectVisits": 28, "tbDiagnosed": 4, "facilityVisits": 88, "densityIdx": 0.7 },
+    "GRID_009": { "suspectVisits": 16, "tbDiagnosed": 2, "facilityVisits": 50, "densityIdx": 0.58 },
+    "GRID_010": { "suspectVisits": 20, "tbDiagnosed": 1, "facilityVisits": 65, "densityIdx": 0.6 },
+    "GRID_011": { "suspectVisits": 9, "tbDiagnosed": 1, "facilityVisits": 30, "densityIdx": 0.33 },
+    "GRID_012": { "suspectVisits": 24, "tbDiagnosed": 3, "facilityVisits": 70, "densityIdx": 0.66 }
   }
 }

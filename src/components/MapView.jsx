@@ -1,6 +1,7 @@
 import { MapContainer, TileLayer, GeoJSON, CircleMarker, Polyline, Tooltip } from "react-leaflet";
 import { useMemo, useState } from "react";
 import Legend from "./Legend.jsx";
+import ClusterLayer from "./ClusterLayer.jsx";
 
 function riskToColor(risk) {
   // sederhana: 0..1
@@ -11,7 +12,19 @@ function riskToColor(risk) {
   return "#fee2e2";
 }
 
-export default function MapView({ areas, facilities, flows, timeKey, layers, filters }) {
+export default function MapView({
+  areas,
+  facilities,
+  flows,
+  timeKey,
+  layers,
+  filters,
+  candidates,
+  clusters,
+  clusterOptions,
+  selectedClusterId,
+  onSelectCluster,
+}) {
   const [selected, setSelected] = useState(null);
 
   const center = [-5.15, 119.42]; // Makassar-ish (placeholder)
@@ -91,6 +104,15 @@ export default function MapView({ areas, facilities, flows, timeKey, layers, fil
             </Polyline>
           );
         })}
+
+        <ClusterLayer
+          candidates={candidates}
+          clusters={clusters}
+          showPoints={clusterOptions.showPoints}
+          showHulls={clusterOptions.showHulls}
+          selectedClusterId={selectedClusterId}
+          onSelectCluster={onSelectCluster}
+        />
       </MapContainer>
 
       <Legend selected={selected} />
